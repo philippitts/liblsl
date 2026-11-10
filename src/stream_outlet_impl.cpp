@@ -161,7 +161,7 @@ stream_outlet_impl::~stream_outlet_impl() {
 			if (std::all_of(io_threads_.begin(), io_threads_.end(),
 					[](const thread_p &thread) { return thread->joinable(); })) {
 				for (auto &thread : io_threads_) thread->join();
-				DLOG_F(INFO, "All of %s's IO threads were joined succesfully", name);
+				DLOG_F(INFO, "All of %s's IO threads were joined successfully", name);
 
 				// Reset and poll the IO contexts in case any pending operations remain.
 				for (const auto &io : {io_ctx_data_, io_ctx_service_})
